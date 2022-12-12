@@ -1,0 +1,419 @@
+2022-11-28 01:01:06.567 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildInitialize call
+2022-11-28 01:01:06.574 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildInitialize call finishing successfully
+2022-11-28 01:01:06.594 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - onBuildInitialized call
+2022-11-28 01:01:06.637 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - workspaceBuildTargets call
+2022-11-28 01:01:06.682 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelRunner - Invoking: /usr/bin/bazel build --bes_backend=grpc://localhost:41825 --override_repository=bazelbsp_aspect=/home/vijay/projects/protohackers/problem7/.bazelbsp --aspects=@bazelbsp_aspect//:aspects.bzl%bsp_target_info_aspect --output_groups=bsp-target-info-transitive-deps,bsp-ide-resolve-transitive-deps --keep_going --color=yes --build_manual_tests -- //...
+2022-11-28 01:01:07.348 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mLoading:[0m 
+2022-11-28 01:01:07.362 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mLoading:[0m 0 packages loaded
+2022-11-28 01:01:07.482 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mAnalyzing:[0m 3 targets (2 packages loaded, 0 targets configured)
+2022-11-28 01:01:09.118 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mAnalyzing:[0m 3 targets (3 packages loaded, 4 targets configured)
+2022-11-28 01:01:25.431 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mINFO: [0mAnalyzed 3 targets (4 packages loaded, 29 targets configured).
+2022-11-28 01:01:25.434 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mINFO: [0mFound 3 targets...
+2022-11-28 01:01:25.529 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[0 / 1][0m [Prepa] BazelWorkspaceStatusAction stable-status.txt
+2022-11-28 01:01:30.453 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[19 / 79][0m Building external/rules_jvm_external/private/tools/java/rules/jvm/external/libbyte-streams.jar (1 source file); 4s multiplex-worker ... (4 actions, 3 running)
+2022-11-28 01:01:34.346 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[35 / 270][0m Building external/com_google_protobuf/java/core/liblite_runtime_only.jar (91 source files); 8s multiplex-worker ... (4 actions running)
+2022-11-28 01:01:38.458 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[37 / 270][0m Building external/com_google_protobuf/java/core/liblite_runtime_only.jar (91 source files); 12s multiplex-worker ... (4 actions running)
+2022-11-28 01:01:43.225 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[43 / 270][0m Building external/com_google_protobuf/java/core/liblite_runtime_only.jar (91 source files); 17s multiplex-worker ... (4 actions, 3 running)
+2022-11-28 01:01:48.759 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[51 / 270][0m Compiling src/google/protobuf/compiler/java/shared_code_generator.cc; 2s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:01:55.346 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[64 / 270][0m Compiling src/google/protobuf/extension_set_heavy.cc; 0s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:02:02.649 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[73 / 270][0m Compiling src/google/protobuf/util/message_differencer.cc; 4s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:02:11.702 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[86 / 270][0m Compiling src/google/protobuf/compiler/java/map_field.cc; 1s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:02:21.558 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[101 / 270][0m Compiling src/google/protobuf/descriptor.pb.cc; 3s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:02:34.138 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[118 / 270][0m Compiling src/google/protobuf/compiler/command_line_interface.cc; 6s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:02:47.959 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[139 / 270][0m Compiling src/google/protobuf/compiler/cpp/message_field.cc; 4s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:02:53.277 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mINFO: [0mFrom Compiling src/google/protobuf/message_lite.cc:
+2022-11-28 01:02:53.283 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - In file included from /usr/include/string.h:535,
+2022-11-28 01:02:53.288 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -                  from external/com_google_protobuf/src/google/protobuf/stubs/port.h:39,
+2022-11-28 01:02:53.294 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -                  from external/com_google_protobuf/src/google/protobuf/stubs/common.h:48,
+2022-11-28 01:02:53.297 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -                  from external/com_google_protobuf/src/google/protobuf/message_lite.h:46,
+2022-11-28 01:02:53.305 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -                  from external/com_google_protobuf/src/google/protobuf/message_lite.cc:36:
+2022-11-28 01:02:53.314 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - In function 'void* memcpy(void*, const void*, size_t)',
+2022-11-28 01:02:53.316 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -     inlined from 'uint8_t* google::protobuf::io::EpsCopyOutputStream::WriteRaw(const void*, int, uint8_t*)' at external/com_google_protobuf/src/google/protobuf/io/coded_stream.h:684:16,
+2022-11-28 01:02:53.323 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -     inlined from 'virtual uint8_t* google::protobuf::internal::ImplicitWeakMessage::_InternalSerialize(uint8_t*, google::protobuf::io::EpsCopyOutputStream*) const' at external/com_google_protobuf/src/google/protobuf/implicit_weak_message.h:103:28,
+2022-11-28 01:02:53.333 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -     inlined from 'bool google::protobuf::MessageLite::SerializePartialToZeroCopyStream(google::protobuf::io::ZeroCopyOutputStream*) const' at external/com_google_protobuf/src/google/protobuf/message_lite.cc:411:30:
+2022-11-28 01:02:53.335 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - /usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: warning: 'void* __builtin___memcpy_chk(void*, const void*, long unsigned int, long unsigned int)' specified size between 18446744071562067968 and 18446744073709551615 exceeds maximum object size 9223372036854775807 [-Wstringop-overflow=]
+2022-11-28 01:02:53.340 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -    29 |   return __builtin___memcpy_chk (__dest, __src, __len,
+2022-11-28 01:02:53.342 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -       |          ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+2022-11-28 01:02:53.344 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -    30 |                                  __glibc_objsize0 (__dest));
+2022-11-28 01:02:53.346 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -       |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+2022-11-28 01:03:03.469 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[163 / 270][0m Compiling src/google/protobuf/descriptor.cc; 8s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:03:21.890 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[182 / 270][0m Compiling src/google/protobuf/compiler/cpp/message.cc; 10s linux-sandbox ... (4 actions running)
+2022-11-28 01:03:42.139 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[208 / 270][0m Compiling src/google/protobuf/compiler/php/php_generator.cc; 6s linux-sandbox ... (4 actions running)
+2022-11-28 01:04:03.644 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mINFO: [0mFrom Building external/io_bazel_rules_scala/src/java/io/bazel/rulesscala/scalac/scalac.jar (4 source files):
+2022-11-28 01:04:03.645 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - warning: [path] bad path element "/home/vijay/.cache/bazel/_bazel_vijay/160581c5bdcf8f79d0b14a52bd884d00/execroot/__main__/bazel-out/k8-opt-exec-2B5CBBC6/bin/external/io_bazel_rules_scala_scala_compiler/io_bazel_rules_scala_scala_compiler.stamp/scala-reflect.jar": no such file or directory
+2022-11-28 01:04:03.645 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - warning: [path] bad path element "/home/vijay/.cache/bazel/_bazel_vijay/160581c5bdcf8f79d0b14a52bd884d00/execroot/__main__/bazel-out/k8-opt-exec-2B5CBBC6/bin/external/io_bazel_rules_scala_scala_compiler/io_bazel_rules_scala_scala_compiler.stamp/scala-library.jar": no such file or directory
+2022-11-28 01:04:09.601 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mINFO: [0mElapsed time: 182.700s, Critical Path: 43.38s
+2022-11-28 01:04:09.601 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mINFO: [0m265 processes: 32 internal, 223 linux-sandbox, 10 worker.
+2022-11-28 01:04:09.602 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mINFO:[0m Build completed successfully, 265 total actions
+2022-11-28 01:04:09.874 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [0m
+2022-11-28 01:04:10.302 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelRunner - Invoking: /usr/bin/bazel info
+2022-11-28 01:04:10.810 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - bazel-bin: /home/vijay/.cache/bazel/_bazel_vijay/160581c5bdcf8f79d0b14a52bd884d00/execroot/__main__/bazel-out/k8-fastbuild/bin
+2022-11-28 01:04:10.811 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - bazel-genfiles: /home/vijay/.cache/bazel/_bazel_vijay/160581c5bdcf8f79d0b14a52bd884d00/execroot/__main__/bazel-out/k8-fastbuild/bin
+2022-11-28 01:04:10.812 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - bazel-testlogs: /home/vijay/.cache/bazel/_bazel_vijay/160581c5bdcf8f79d0b14a52bd884d00/execroot/__main__/bazel-out/k8-fastbuild/testlogs
+2022-11-28 01:04:10.819 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - character-encoding: file.encoding = ISO-8859-1, defaultCharset = ISO-8859-1
+2022-11-28 01:04:10.825 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - command_log: /home/vijay/.cache/bazel/_bazel_vijay/160581c5bdcf8f79d0b14a52bd884d00/command.log
+2022-11-28 01:04:10.826 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - committed-heap-size: 154MB
+2022-11-28 01:04:10.829 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - execution_root: /home/vijay/.cache/bazel/_bazel_vijay/160581c5bdcf8f79d0b14a52bd884d00/execroot/__main__
+2022-11-28 01:04:10.831 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - gc-count: 19
+2022-11-28 01:04:10.832 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - gc-time: 458ms
+2022-11-28 01:04:10.835 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - install_base: /home/vijay/.cache/bazel/_bazel_vijay/install/cbf972266931ad9fad1857441b832915
+2022-11-28 01:04:10.839 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - java-home: /home/vijay/.cache/bazel/_bazel_vijay/install/cbf972266931ad9fad1857441b832915/embedded_tools/jdk
+2022-11-28 01:04:10.841 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - java-runtime: OpenJDK Runtime Environment (build 11.0.6+10-LTS) by Azul Systems, Inc.
+2022-11-28 01:04:10.842 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - java-vm: OpenJDK 64-Bit Server VM (build 11.0.6+10-LTS, mixed mode) by Azul Systems, Inc.
+2022-11-28 01:04:10.844 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - max-heap-size: 2051MB
+2022-11-28 01:04:10.846 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - output_base: /home/vijay/.cache/bazel/_bazel_vijay/160581c5bdcf8f79d0b14a52bd884d00
+2022-11-28 01:04:10.846 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - output_path: /home/vijay/.cache/bazel/_bazel_vijay/160581c5bdcf8f79d0b14a52bd884d00/execroot/__main__/bazel-out
+2022-11-28 01:04:10.847 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - package_path: %workspace%
+2022-11-28 01:04:10.847 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - release: release 5.3.2
+2022-11-28 01:04:10.847 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - repository_cache: /home/vijay/.cache/bazel/_bazel_vijay/cache/repos/v1
+2022-11-28 01:04:10.849 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - server_log: /home/vijay/.cache/bazel/_bazel_vijay/160581c5bdcf8f79d0b14a52bd884d00/java.log.elder.vijay.log.java.20221128-005657.317273
+2022-11-28 01:04:10.853 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - server_pid: 317273
+2022-11-28 01:04:10.855 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - used-heap-size: 103MB
+2022-11-28 01:04:10.860 [pool-5-thread-1] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - workspace: /home/vijay/projects/protohackers/problem7
+2022-11-28 01:04:11.758 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - workspaceBuildTargets call finishing successfully
+2022-11-28 01:04:11.798 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalacOptions call with param: ScalacOptionsParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+]
+2022-11-28 01:04:11.800 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalacOptions call finishing successfully
+2022-11-28 01:04:11.822 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetJavacOptions call with param: JavacOptionsParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+]
+2022-11-28 01:04:11.822 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetJavacOptions call finishing successfully
+2022-11-28 01:04:11.834 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetSources call with param: SourcesParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+]
+2022-11-28 01:04:11.837 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetSources call finishing successfully
+2022-11-28 01:04:11.862 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetDependencySources call with param: DependencySourcesParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+]
+2022-11-28 01:04:11.865 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetDependencySources call finishing successfully
+2022-11-28 01:04:26.494 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaMainClasses call with param: ScalaMainClassesParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+  originId = null
+]
+2022-11-28 01:04:26.496 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaMainClasses call finishing successfully
+2022-11-28 01:04:26.501 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaTestClasses call with param: ScalaTestClassesParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+  originId = null
+]
+2022-11-28 01:04:26.504 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaTestClasses call finishing successfully
+2022-11-28 01:04:26.562 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetCompile call with param: CompileParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+  originId = null
+  arguments = null
+]
+2022-11-28 01:04:26.574 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelRunner - Invoking: /usr/bin/bazel build --bes_backend=grpc://localhost:41825 -- //:main
+2022-11-28 01:04:26.821 [pool-6-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Loading: 
+2022-11-28 01:04:26.824 [pool-6-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Loading: 0 packages loaded
+2022-11-28 01:04:26.881 [pool-6-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Analyzing: target //:main (0 packages loaded, 0 targets configured)
+2022-11-28 01:04:27.486 [pool-6-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Analyzed target //:main (24 packages loaded, 426 targets configured).
+2022-11-28 01:04:27.487 [pool-6-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Found 1 target...
+2022-11-28 01:04:27.537 [pool-6-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [0 / 1] [Prepa] BazelWorkspaceStatusAction stable-status.txt
+2022-11-28 01:04:27.637 [pool-6-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Target //:main up-to-date:
+2022-11-28 01:04:27.638 [pool-6-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -   bazel-bin/main.jar
+2022-11-28 01:04:27.638 [pool-6-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -   bazel-bin/main.sh
+2022-11-28 01:04:27.651 [pool-6-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Elapsed time: 1.035s, Critical Path: 0.05s
+2022-11-28 01:04:27.652 [pool-6-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: 2 processes: 2 internal.
+2022-11-28 01:04:27.652 [pool-6-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Build completed successfully, 2 total actions
+2022-11-28 01:04:27.688 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetCompile call finishing successfully
+2022-11-28 01:04:27.695 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaTestClasses call with param: ScalaTestClassesParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+  originId = null
+]
+2022-11-28 01:04:27.695 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaTestClasses call finishing successfully
+2022-11-28 01:04:27.696 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaMainClasses call with param: ScalaMainClassesParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+  originId = null
+]
+2022-11-28 01:04:27.697 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaMainClasses call finishing successfully
+2022-11-28 01:06:05.252 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call with param: InverseSourcesParams [
+  textDocument = TextDocumentIdentifier [
+    uri = "file:///home/vijay/projects/protohackers/problem7/LRCP.scala"
+  ]
+]
+2022-11-28 01:06:05.254 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call finishing successfully
+2022-11-28 01:06:06.317 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call with param: InverseSourcesParams [
+  textDocument = TextDocumentIdentifier [
+    uri = "file:///home/vijay/projects/protohackers/problem7/LRCP.scala"
+  ]
+]
+2022-11-28 01:06:06.318 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call finishing successfully
+2022-11-28 01:06:10.760 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetCompile call with param: CompileParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+  originId = null
+  arguments = null
+]
+2022-11-28 01:06:10.763 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelRunner - Invoking: /usr/bin/bazel build --bes_backend=grpc://localhost:41825 -- //:main
+2022-11-28 01:06:11.038 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Loading: 
+2022-11-28 01:06:11.039 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Loading: 0 packages loaded
+2022-11-28 01:06:11.095 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Analyzing: target //:main (1 packages loaded, 0 targets configured)
+2022-11-28 01:06:11.182 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Analyzed target //:main (2 packages loaded, 10 targets configured).
+2022-11-28 01:06:11.193 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Found 1 target...
+2022-11-28 01:06:11.209 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [4 / 6] [Prepa] BazelWorkspaceStatusAction stable-status.txt
+2022-11-28 01:06:12.803 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - ERROR: /home/vijay/projects/protohackers/problem7/BUILD:17:13: scala //:main failed: (Exit 1): scalac failed: error executing command bazel-out/k8-opt-exec-2B5CBBC6/bin/external/io_bazel_rules_scala/src/java/io/bazel/rulesscala/scalac/scalac @bazel-out/k8-fastbuild/bin/main.jar-0.params
+2022-11-28 01:06:12.803 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - LRCP.scala:4: error: value seconds is not a member of Int
+2022-11-28 01:06:12.804 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -   val RetransmissionTimeout = 3.seconds
+2022-11-28 01:06:12.809 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -                                 ^
+2022-11-28 01:06:12.810 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - LRCP.scala:5: error: value seconds is not a member of Int
+2022-11-28 01:06:12.810 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -   val SessionExpiry = 60.seconds
+2022-11-28 01:06:12.811 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -                          ^
+2022-11-28 01:06:12.811 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - LRCP.scala:40: error: not found: value Pattern
+2022-11-28 01:06:12.812 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -             data.split('/').length == data.split(Pattern.quote("\\/")).length match {
+2022-11-28 01:06:12.823 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -                                                  ^
+2022-11-28 01:06:12.823 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - three errors found
+2022-11-28 01:06:12.824 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Build failed
+2022-11-28 01:06:12.834 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - java.lang.RuntimeException: Build failed
+2022-11-28 01:06:12.836 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - 	at io.bazel.rulesscala.scalac.ScalacWorker.compileScalaSources(ScalacWorker.java:290)
+2022-11-28 01:06:12.837 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - 	at io.bazel.rulesscala.scalac.ScalacWorker.work(ScalacWorker.java:61)
+2022-11-28 01:06:12.838 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - 	at io.bazel.rulesscala.worker.Worker.persistentWorkerMain(Worker.java:86)
+2022-11-28 01:06:12.848 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - 	at io.bazel.rulesscala.worker.Worker.workerMain(Worker.java:39)
+2022-11-28 01:06:12.852 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - 	at io.bazel.rulesscala.scalac.ScalacWorker.main(ScalacWorker.java:25)
+2022-11-28 01:06:12.863 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Target //:main failed to build
+2022-11-28 01:06:12.868 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Use --verbose_failures to see the command lines of failed build steps.
+2022-11-28 01:06:12.913 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Elapsed time: 2.060s, Critical Path: 1.54s
+2022-11-28 01:06:12.917 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: 2 processes: 2 internal.
+2022-11-28 01:06:12.921 [pool-7-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - FAILED: Build did NOT complete successfully
+2022-11-28 01:06:13.165 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetCompile call finishing successfully
+2022-11-28 01:06:13.169 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaTestClasses call with param: ScalaTestClassesParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+  originId = null
+]
+2022-11-28 01:06:13.175 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaMainClasses call with param: ScalaMainClassesParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+  originId = null
+]
+2022-11-28 01:06:13.181 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaTestClasses call finishing successfully
+2022-11-28 01:06:13.181 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaMainClasses call finishing successfully
+2022-11-28 01:06:23.872 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call with param: InverseSourcesParams [
+  textDocument = TextDocumentIdentifier [
+    uri = "file:///home/vijay/projects/protohackers/problem7/LRCP.scala"
+  ]
+]
+2022-11-28 01:06:23.872 [ForkJoinPool.commonPool-worker-7] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call finishing successfully
+2022-11-28 01:06:24.688 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call with param: InverseSourcesParams [
+  textDocument = TextDocumentIdentifier [
+    uri = "file:///home/vijay/projects/protohackers/problem7/LRCP.scala"
+  ]
+]
+2022-11-28 01:06:24.693 [ForkJoinPool.commonPool-worker-7] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call finishing successfully
+2022-11-28 01:06:34.266 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call with param: InverseSourcesParams [
+  textDocument = TextDocumentIdentifier [
+    uri = "file:///home/vijay/projects/protohackers/problem7/LRCP.scala"
+  ]
+]
+2022-11-28 01:06:34.266 [ForkJoinPool.commonPool-worker-7] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call finishing successfully
+2022-11-28 01:07:31.752 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call with param: InverseSourcesParams [
+  textDocument = TextDocumentIdentifier [
+    uri = "file:///home/vijay/projects/protohackers/problem7/LRCP.scala"
+  ]
+]
+2022-11-28 01:07:31.758 [ForkJoinPool.commonPool-worker-7] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call finishing successfully
+2022-11-28 01:07:31.782 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call with param: InverseSourcesParams [
+  textDocument = TextDocumentIdentifier [
+    uri = "file:///home/vijay/projects/protohackers/problem7/LRCP.scala"
+  ]
+]
+2022-11-28 01:07:31.783 [ForkJoinPool.commonPool-worker-7] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call finishing successfully
+2022-11-28 01:08:48.885 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetCompile call with param: CompileParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+  originId = null
+  arguments = null
+]
+2022-11-28 01:08:48.887 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelRunner - Invoking: /usr/bin/bazel build --bes_backend=grpc://localhost:41825 -- //:main
+2022-11-28 01:08:49.026 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Another command (pid=324975) is running. Waiting for it to complete on the server (server_pid=317273)...
+2022-11-28 01:09:45.021 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Loading: 
+2022-11-28 01:09:45.024 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Loading: 0 packages loaded
+2022-11-28 01:09:45.059 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Analyzing: target //:main (1 packages loaded, 0 targets configured)
+2022-11-28 01:09:46.569 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Analyzing: target //:main (2 packages loaded, 2 targets configured)
+2022-11-28 01:09:48.545 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call with param: InverseSourcesParams [
+  textDocument = TextDocumentIdentifier [
+    uri = "file:///home/vijay/projects/protohackers/problem7/LRCP.scala"
+  ]
+]
+2022-11-28 01:09:48.549 [ForkJoinPool.commonPool-worker-5] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call finishing successfully
+2022-11-28 01:10:05.212 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Analyzed target //:main (3 packages loaded, 34 targets configured).
+2022-11-28 01:10:05.213 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Found 1 target...
+2022-11-28 01:10:05.254 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [0 / 1] [Prepa] BazelWorkspaceStatusAction stable-status.txt
+2022-11-28 01:10:07.484 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: From Compiling src/google/protobuf/message_lite.cc:
+2022-11-28 01:10:07.488 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - In file included from /usr/include/string.h:535,
+2022-11-28 01:10:07.491 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -                  from external/com_google_protobuf/src/google/protobuf/stubs/port.h:39,
+2022-11-28 01:10:07.492 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -                  from external/com_google_protobuf/src/google/protobuf/stubs/common.h:48,
+2022-11-28 01:10:07.493 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -                  from external/com_google_protobuf/src/google/protobuf/message_lite.h:46,
+2022-11-28 01:10:07.495 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -                  from external/com_google_protobuf/src/google/protobuf/message_lite.cc:36:
+2022-11-28 01:10:07.497 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - In function 'void* memcpy(void*, const void*, size_t)',
+2022-11-28 01:10:07.497 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -     inlined from 'uint8_t* google::protobuf::io::EpsCopyOutputStream::WriteRaw(const void*, int, uint8_t*)' at external/com_google_protobuf/src/google/protobuf/io/coded_stream.h:684:16,
+2022-11-28 01:10:07.507 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -     inlined from 'virtual uint8_t* google::protobuf::internal::ImplicitWeakMessage::_InternalSerialize(uint8_t*, google::protobuf::io::EpsCopyOutputStream*) const' at external/com_google_protobuf/src/google/protobuf/implicit_weak_message.h:103:28,
+2022-11-28 01:10:07.511 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -     inlined from 'bool google::protobuf::MessageLite::SerializePartialToZeroCopyStream(google::protobuf::io::ZeroCopyOutputStream*) const' at external/com_google_protobuf/src/google/protobuf/message_lite.cc:411:30:
+2022-11-28 01:10:07.513 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - /usr/include/x86_64-linux-gnu/bits/string_fortified.h:29:33: warning: 'void* __builtin___memcpy_chk(void*, const void*, long unsigned int, long unsigned int)' specified size between 18446744071562067968 and 18446744073709551615 exceeds maximum object size 9223372036854775807 [-Wstringop-overflow=]
+2022-11-28 01:10:07.523 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -    29 |   return __builtin___memcpy_chk (__dest, __src, __len,
+2022-11-28 01:10:07.525 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -       |          ~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~~~~~~~~~~~
+2022-11-28 01:10:07.526 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -    30 |                                  __glibc_objsize0 (__dest));
+2022-11-28 01:10:07.529 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -       |                                  ~~~~~~~~~~~~~~~~~~~~~~~~~~
+2022-11-28 01:10:09.989 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [20 / 212] Compiling src/google/protobuf/compiler/java/message.cc; 4s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:10:14.945 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [28 / 212] Compiling src/google/protobuf/compiler/java/helpers.cc; 2s linux-sandbox ... (4 actions running)
+2022-11-28 01:10:19.484 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [34 / 212] Compiling src/google/protobuf/generated_message_tctable_lite.cc; 3s linux-sandbox ... (4 actions running)
+2022-11-28 01:10:25.328 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [40 / 212] Compiling src/google/protobuf/compiler/java/primitive_field_lite.cc; 4s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:10:31.791 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [53 / 212] Compiling src/google/protobuf/compiler/code_generator.cc; 0s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:10:40.963 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [65 / 212] Compiling src/google/protobuf/compiler/cpp/parse_function_generator.cc; 3s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:10:49.908 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [77 / 212] Compiling src/google/protobuf/extension_set.cc; 4s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:10:53.526 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetCompile call with param: CompileParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ],
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ],
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+  originId = null
+  arguments = null
+]
+2022-11-28 01:10:53.534 [ForkJoinPool.commonPool-worker-5] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelRunner - Invoking: /usr/bin/bazel build --bes_backend=grpc://localhost:41825 -- //:main
+2022-11-28 01:10:53.890 [pool-9-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Another command (pid=327351) is running. Waiting for it to complete on the server (server_pid=317273)...
+2022-11-28 01:10:59.681 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [94 / 212] Compiling src/google/protobuf/compiler/cpp/enum.cc; 1s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:11:11.405 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [115 / 212] Compiling src/google/protobuf/descriptor_database.cc; 4s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:11:25.247 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [129 / 212] Compiling src/google/protobuf/descriptor.cc; 10s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:11:40.453 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [144 / 212] Compiling src/google/protobuf/compiler/java/message_field.cc; 2s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:11:58.002 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [167 / 212] Compiling src/google/protobuf/text_format.cc; 2s linux-sandbox ... (4 actions, 3 running)
+2022-11-28 01:12:18.066 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [192 / 212] Compiling src/google/protobuf/repeated_field.cc; 3s linux-sandbox ... (4 actions running)
+2022-11-28 01:12:35.121 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: From Building external/io_bazel_rules_scala/src/java/io/bazel/rulesscala/scalac/scalac.jar (4 source files):
+2022-11-28 01:12:35.126 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - warning: [path] bad path element "/home/vijay/.cache/bazel/_bazel_vijay/160581c5bdcf8f79d0b14a52bd884d00/execroot/__main__/bazel-out/k8-opt-exec-2B5CBBC6/bin/external/io_bazel_rules_scala_scala_compiler/io_bazel_rules_scala_scala_compiler.stamp/scala-reflect.jar": no such file or directory
+2022-11-28 01:12:35.127 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - warning: [path] bad path element "/home/vijay/.cache/bazel/_bazel_vijay/160581c5bdcf8f79d0b14a52bd884d00/execroot/__main__/bazel-out/k8-opt-exec-2B5CBBC6/bin/external/io_bazel_rules_scala_scala_compiler/io_bazel_rules_scala_scala_compiler.stamp/scala-library.jar": no such file or directory
+2022-11-28 01:12:42.296 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [268 / 269] [Prepa] scala //:main
+2022-11-28 01:12:44.808 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Target //:main up-to-date:
+2022-11-28 01:12:44.809 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -   bazel-bin/main.jar
+2022-11-28 01:12:44.809 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -   bazel-bin/main.sh
+2022-11-28 01:12:44.917 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Elapsed time: 235.820s, Critical Path: 42.98s
+2022-11-28 01:12:44.921 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: 229 processes: 5 internal, 213 linux-sandbox, 11 worker.
+2022-11-28 01:12:44.923 [pool-8-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Build completed successfully, 229 total actions
+2022-11-28 01:12:44.987 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetCompile call finishing successfully
+2022-11-28 01:12:45.027 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaMainClasses call with param: ScalaMainClassesParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+  originId = null
+]
+2022-11-28 01:12:45.028 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaTestClasses call with param: ScalaTestClassesParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+  originId = null
+]
+2022-11-28 01:12:45.030 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaMainClasses call finishing successfully
+2022-11-28 01:12:45.030 [ForkJoinPool.commonPool-worker-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaTestClasses call finishing successfully
+2022-11-28 01:12:45.254 [pool-9-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Loading: 
+2022-11-28 01:12:45.261 [pool-9-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Loading: 0 packages loaded
+2022-11-28 01:12:45.292 [pool-9-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Analyzing: target //:main (0 packages loaded, 0 targets configured)
+2022-11-28 01:12:45.297 [pool-9-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Analyzed target //:main (0 packages loaded, 0 targets configured).
+2022-11-28 01:12:45.299 [pool-9-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Found 1 target...
+2022-11-28 01:12:45.376 [pool-9-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [0 / 2] [Prepa] BazelWorkspaceStatusAction stable-status.txt
+2022-11-28 01:12:47.281 [pool-9-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [2 / 2] checking cached actions
+2022-11-28 01:12:47.290 [pool-9-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - Target //:main up-to-date:
+2022-11-28 01:12:47.291 [pool-9-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -   bazel-bin/main.jar
+2022-11-28 01:12:47.301 [pool-9-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess -   bazel-bin/main.sh
+2022-11-28 01:12:47.350 [pool-9-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Elapsed time: 113.587s, Critical Path: 1.90s
+2022-11-28 01:12:47.352 [pool-9-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: 2 processes: 1 internal, 1 worker.
+2022-11-28 01:12:47.353 [pool-9-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - INFO: Build completed successfully, 2 total actions
+2022-11-28 01:12:47.430 [ForkJoinPool.commonPool-worker-5] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetCompile call finishing successfully
+2022-11-28 01:12:47.437 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaMainClasses call with param: ScalaMainClassesParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+  originId = null
+]
+2022-11-28 01:12:47.439 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaTestClasses call with param: ScalaTestClassesParams [
+  targets = ArrayList (
+    BuildTargetIdentifier [
+      uri = "//:main"
+    ]
+  )
+  originId = null
+]
+2022-11-28 01:12:47.441 [ForkJoinPool.commonPool-worker-5] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaMainClasses call finishing successfully
+2022-11-28 01:12:47.441 [ForkJoinPool.commonPool-worker-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetScalaTestClasses call finishing successfully
+2022-11-28 01:13:50.169 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call with param: InverseSourcesParams [
+  textDocument = TextDocumentIdentifier [
+    uri = "file:///home/vijay/projects/protohackers/problem7/LRCP.scala"
+  ]
+]
+2022-11-28 01:13:50.170 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildTargetInverseSources call finishing successfully
+2022-11-28 11:57:51.985 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildInitialize call
+2022-11-28 11:57:52.001 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildInitialize call finishing successfully
+2022-11-28 11:57:52.021 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - onBuildInitialized call
+2022-11-28 11:57:52.113 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - workspaceBuildTargets call
+2022-11-28 11:57:52.204 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelRunner - Invoking: /usr/bin/bazel build --bes_backend=grpc://localhost:43507 --override_repository=bazelbsp_aspect=/home/vijay/projects/protohackers/problem7/.bazelbsp --aspects=@bazelbsp_aspect//:aspects.bzl%bsp_target_info_aspect --output_groups=bsp-target-info-transitive-deps,bsp-ide-resolve-transitive-deps --keep_going --color=yes --build_manual_tests -- //...
+2022-11-28 11:57:53.095 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mLoading:[0m 
+2022-11-28 11:57:53.103 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mLoading:[0m 0 packages loaded
+2022-11-28 11:57:53.270 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mAnalyzing:[0m 3 targets (2 packages loaded, 0 targets configured)
+2022-11-28 11:57:55.118 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mAnalyzing:[0m 3 targets (3 packages loaded, 28 targets configured)
+2022-11-28 11:58:06.842 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mINFO: [0mAnalyzed 3 targets (4 packages loaded, 158 targets configured).
+2022-11-28 11:58:06.844 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mINFO: [0mFound 3 targets...
+2022-11-28 11:58:06.876 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32m[1 / 68][0m [Prepa] BazelWorkspaceStatusAction stable-status.txt
+2022-11-28 11:58:07.299 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mINFO: [0mElapsed time: 15.011s, Critical Path: 0.07s
+2022-11-28 11:58:07.300 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mINFO: [0m3 processes: 2 internal, 1 linux-sandbox.
+2022-11-28 11:58:07.302 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [32mINFO:[0m Build completed successfully, 3 total actions
+2022-11-28 11:58:07.576 [pool-4-thread-2] INFO    org.jetbrains.bsp.bazel.bazelrunner.BazelProcess - [0m
+2022-11-28 11:58:10.192 [ForkJoinPool.commonPool-worker-3] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - workspaceBuildTargets call finishing successfully
+2022-11-28 11:58:14.510 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildInitialize call
+2022-11-28 11:58:14.521 [pool-1-thread-1] INFO    org.jetbrains.bsp.bazel.server.bsp.BspRequestsRunner - buildInitialize call finishing successfully
