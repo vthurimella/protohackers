@@ -1,4 +1,3 @@
-
 import akka.actor.{Actor, ActorRef, ActorSystem, Props}
 import akka.io.Tcp.{Closed, PeerClosed, Received, Write}
 import akka.io.{IO, Tcp}
@@ -15,75 +14,199 @@ import scala.io.StdIn
 import scala.reflect.ClassTag
 import scala.util.{Failure, Success, Try}
 
-object Json {
-  def parse[T: ClassTag](json: String)(implicit ct: ClassTag[T]) = {
-    val mapper = new ObjectMapper().registerModule(DefaultScalaModule)
-    mapper.readValue(json, ct.runtimeClass)
-  }
 
-  def toString[T](obj: T) = {
-    val out = new StringWriter()
-    val mapper = new ObjectMapper().registerModule(DefaultScalaModule)
-    mapper.writeValue(out, obj)
-    out.toString()
-  }
+object FileSystem {
+
+  class Command(requester: ActorRef)
+  case class Get(file: String, revision: Option[Int], requester: ActorRef) extends Command(requester)
+  case class Put(file: String, length: Int, data: String, requester: ActorRef) extends Command(requester)
+  case class List(dir: String, requester: ActorRef) extends Command(requester)
 }
 
-class NumberDeserializer extends JsonDeserializer[Double] {
-  override def deserialize(jp: JsonParser, ctx: DeserializationContext): Double = {
-    jp.getDoubleValue
-  }
-}
+trait FileSystemNode
+case class Directory(
+  name: String,
+  directories: Map[String, Directory],
+  files: Map[String, File]
+) extends FileSystemNode
+case class File(
+  name: String,
+  currentRevision: Int,
+  archive: Map[Int, String]
+) extends FileSystemNode
 
-case class Response(method: String = "isPrime", prime: Boolean)
+class FileSystem extends Actor {
 
-@JsonIgnoreProperties(ignoreUnknown = true)
-case class Request(
-  method: String,
-  @JsonProperty(required = true)
-  @JsonDeserialize(using = classOf[NumberDeserializer])
-  number: Double
+private var root = Directory(
+  "/",
+  Map.empty[String, Directory],
+  Map.empty[String, File]
 )
 
-class SimplisticHandler extends Actor {
-  var buffer: String = ""
+  def findFolder(path: Array[String]): Option[Directory] =
+    path.foldLeft(Option(root)) {
+      case (Some(dir), name) =>
+        dir.directories.get(name)
+      case (None, _) =>
+        None
+    }
 
-  def isPrime(num: Double): Boolean = {
-    val numInt = num.toInt
-    numInt == num && numInt >= 2 && (2 to Math.sqrt(numInt).toInt).forall(numInt % _ != 0)
-  }
-  def respondAndClose(senderRef: ActorRef) = {
-    senderRef ! Closed
-    context.stop(self)
-  }
 
   def receive = {
-    case Received(data) =>
-      val strData = data.utf8String
-      if (!strData.contains('\n')) {
-        buffer = strData
-      } else {
-        val appendedData =
-          if (buffer.length > 0) {
-            buffer + strData
-          } else
-            strData
+    case FileSystem.List(dir, requester) =>
+      (dir.startsWith("/"), findFolder(dir.split("/").filter(_.nonEmpty))) match {
+        case (false, _) =>
+          // TODO: Return error to the client
+        case (true, Some(folder)) =>
+          requester ! Client.Success.List((folder.files.values ++ folder.directories.values).toSeq)
+        case (true, None) =>
+          requester ! Client.Success.List(Nil)
+      }
+  }
+}
 
-        appendedData.split('\n').map { req =>
-          val respOpt = for {
-            Request(method, number) <- Try(Json.parse[Request](req)).toOption
-            jsonRespStr = s"${Json.toString[Response](Response(prime = isPrime(number)))}\n"
-            respStr <- Option(ByteString(jsonRespStr)).filter(_ => method == "isPrime")
-          } yield respStr
 
-          respOpt match {
-            case Some(resp) =>
-              sender() ! Write(resp)
-              buffer = ""
-            case None =>
-              respondAndClose(sender())
-          }
+case class ExitableError(msg: String) extends Throwable(msg)
+
+trait Command
+// ERR usage: GET file [revision]
+case class Get(file: String, revision: Option[Int]) extends Command
+// ERR usage: PUT file length newline data
+case class Put(file: String, length: Int) extends Command
+// ERR usage: LIST dir
+case class List(dir: String) extends Command
+// ERR usage: HELP
+case object Help extends Command
+
+
+object Parser {
+  object CommandLabels {
+    val Get = "GET"
+    val Put = "PUT"
+    val List = "LIST"
+    val Help = "HELP"
+  }
+
+  object Errors {
+    val GetUsage = new Exception("ERR usage: GET file [revision]")
+    val PutUsage = new Exception("ERR usage: PUT file length newline data")
+    val ListUsage = new Exception("ERR usage: LIST dir")
+    def IllegalMethod(method: String) = ExitableError(s"ERR illegal method: $method")
+  }
+  def apply(line: String): Try[Command] = {
+    val tokens = line.split(" ")
+    tokens.headOption match {
+      case Some(CommandLabels.Get) =>
+        tokens.tail match {
+          case Array(file) => Success(Get(file, None))
+          case Array(file, revision) => Success(Get(file, Some(revision.toInt)))
+          case _ => Failure(Errors.GetUsage)
         }
+
+      case Some(CommandLabels.Put) =>
+        tokens.tail match {
+          case Array(file, length) => Success(Put(file, length.toInt))
+          case _ => Failure(Errors.PutUsage)
+        }
+
+      case Some(CommandLabels.List) =>
+        tokens.tail match {
+          case Array(dir) => Success(List(dir))
+          case _ => Failure(Errors.ListUsage)
+        }
+
+      case Some(CommandLabels.Help) =>
+        Success(Help)
+
+      case Some(unknownCommand) =>
+        Failure(Errors.IllegalMethod(unknownCommand))
+
+      case None =>
+        // TODO: should this be an error?
+        Failure(Errors.IllegalMethod(""))
+    }
+  }
+}
+
+object Client {
+  val HelpMessage = "OK usage: HELP|GET|PUT|LIST"
+  val ReadyMessage = "READY"
+
+  trait FileSystemResponses
+
+  object Success {
+    case class Put(revision: Int) extends FileSystemResponses
+    case class Get(data: String) extends FileSystemResponses
+    case class List(files: Seq[FileSystemNode]) extends FileSystemResponses
+  }
+}
+
+class Client(val client: ActorRef, fileSystem: ActorRef) extends Actor {
+  private var buffer: String = ""
+  private var putCmd: Option[Put] = None
+
+  private def handlePut(cmd: Put): Unit =
+    cmd.length <= buffer.length match {
+      case true =>
+        val (data, rest) = buffer.splitAt(cmd.length)
+        putCmd = None
+        fileSystem ! FileSystem.Put(cmd.file, cmd.length, data, self)
+        buffer = rest
+      case false =>
+        putCmd = Some(cmd)
+    }
+
+  client ! Write(ByteString(Client.ReadyMessage + "\n"))
+
+  def receive = {
+    case Client.Success.Get(data) =>
+      client ! Write(ByteString(s"OK ${data.length}\n${data}\n${Client.ReadyMessage}\n"))
+
+    case Client.Success.Put(revision) =>
+      client ! Write(ByteString(s"OK r${revision}\n${Client.ReadyMessage}\n"))
+
+    case Client.Success.List(files) =>
+      val fileStrs = files.map {
+        case Directory(name, _, _) => s"$name/ DIR"
+        case File(name, revision, _) => s"$name r$revision"
+      }
+      val serialized = fileStrs match {
+        case Nil => ""
+        case _ => fileStrs.mkString("\n")
+      }
+      client ! Write(ByteString(s"OK ${files.length}\n${serialized}${Client.ReadyMessage}\n"))
+
+    case Received(data) =>
+      buffer += data.utf8String
+      putCmd match {
+        case Some(p: Put) =>
+          handlePut(p)
+        case None =>
+          buffer.contains('\n') match {
+            case false =>
+              ()
+            case true =>
+              val (line, rest) = buffer.span(_ != '\n')
+              buffer = rest.tail
+              Parser(line) match {
+                case Success(Help) =>
+                  client ! Write(ByteString(s"${Client.HelpMessage}\n${Client.ReadyMessage}\n"))
+                case Success(p: Put) =>
+                  handlePut(p)
+                case Success(Get(file, revision)) =>
+                  println(s"Received ${Get(file, revision)}")
+                  fileSystem ! FileSystem.Get(file, revision, self)
+                case Success(List(dir)) =>
+                  fileSystem ! FileSystem.List(dir, self)
+                case Failure(err: ExitableError) =>
+                  client ! Write(ByteString(s"${err.getMessage}\n"))
+                  context.stop(self)
+                case Failure(err) =>
+                  client ! Write(ByteString(s"${err.getMessage}\n"))
+                case unknown =>
+                  println(s"Line parse failed and parsed ${unknown.getClass}")
+              }
+          }
       }
     case PeerClosed =>
       context.stop(self)
@@ -91,7 +214,7 @@ class SimplisticHandler extends Actor {
 }
 
 
-class TcpManager extends Actor {
+class TcpManager(fileSystem: ActorRef) extends Actor {
   import Tcp._
   import context.system
 
@@ -105,8 +228,8 @@ class TcpManager extends Actor {
       context.stop(self)
 
     case Connected(_, _) =>
-      val handler = context.actorOf(Props[SimplisticHandler]())
       val connection = sender()
+      val handler = context.actorOf(Props(new Client(connection, fileSystem)))
       connection ! Register(handler)
   }
 }
@@ -114,7 +237,8 @@ class TcpManager extends Actor {
 
 object Server extends App {
   implicit val system: ActorSystem = ActorSystem("Server")
-  system.actorOf(Props(classOf[TcpManager]))
+  val fileSystem = system.actorOf(Props(new FileSystem))
+  system.actorOf(Props(new TcpManager(fileSystem)))
   println("Press enter to exit...")
   StdIn.readLine()
   system.terminate()
