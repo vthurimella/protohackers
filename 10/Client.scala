@@ -33,7 +33,7 @@ class Client(val client: ActorRef, fileSystem: ActorRef) extends Actor {
   }
 
   private def handlePut(cmd: Put): Unit = {
-    def isAscii(data: String) = data.forall(ch => (0x20 <= ch && ch <= 0x7E) || ch == '\n' || ch == '\t')
+    def isAscii(data: String) = data.forall(ch => (' ' <= ch && ch <= '~') || ch == '\n' || ch == '\t')
 
     cmd.length <= buffer.length match {
       case true =>
@@ -55,6 +55,7 @@ class Client(val client: ActorRef, fileSystem: ActorRef) extends Actor {
   def receive = {
     case failure: Client.Failure =>
       client ! Write(ByteString(s"${failure.msg}\n${Client.ReadyMessage}\n"))
+
     case Client.Success.Get(data) =>
       client ! Write(ByteString(s"OK ${data.length}\n${data}${Client.ReadyMessage}\n"))
 
@@ -80,7 +81,7 @@ class Client(val client: ActorRef, fileSystem: ActorRef) extends Actor {
         case None =>
           buffer.contains('\n') match {
             case false =>
-              ()
+              // Wait for new line to extract command
             case true =>
               val (line, rest) = buffer.span(_ != '\n')
               buffer = rest.tail

@@ -31,7 +31,7 @@ class FileSystem extends Actor {
     mutable.Map.empty[String, File]
   )
 
-  def findFolder(path: Array[String]): Option[Directory] =
+  private def findFolder(path: Array[String]): Option[Directory] =
     path.foldLeft(Option(root)) {
       case (Some(dir), name) =>
         dir.directories.get(name)
@@ -39,12 +39,16 @@ class FileSystem extends Actor {
         None
     }
 
+  private def parsePath(file: String) = {
+    val pathAndFile = file.split("/", -1)
+    (pathAndFile.dropRight(1).drop(1), pathAndFile.lastOption)
+  }
+
 
   def receive = {
     case FileSystem.Put(file, _, data, requester) =>
-      val pathAndFile = file.split("/", -1)
-      val (path, fileOpt) = (pathAndFile.dropRight(1).drop(1), pathAndFile.lastOption)
-      val pwd = path.foldLeft(root) { case (curr, fdr) =>
+      val (path, fileOpt) = parsePath(file)
+      val pwd = path.foldLeft (root) { case (curr, fdr) =>
         curr.directories.contains(fdr) match {
           case true =>
             curr.directories(fdr)
@@ -56,7 +60,7 @@ class FileSystem extends Actor {
       }
       fileOpt match {
         case None =>
-        // Illegal file name should be filtered when parsing the command
+          // Illegal file name should be filtered when parsing the command
         case Some(fileName) =>
           val file = pwd.files.getOrElse(fileName, File(fileName))
           val sameFile = file.archive
@@ -73,11 +77,10 @@ class FileSystem extends Actor {
           requester ! Client.Success.Put(file.currentRevision)
       }
     case FileSystem.Get(file, revision, requester) =>
-      val pathAndFile = file.split("/", -1)
-      val (path, fileOpt) = (pathAndFile.dropRight(1).drop(1), pathAndFile.lastOption)
+      val (path, fileOpt) = parsePath(file)
       (findFolder(path), fileOpt) match {
         case (Some(_), None) =>
-        // Not a valid path should be filtered when parsing the command
+          // Not a valid path should be filtered when parsing the command
         case (None, _) =>
           requester ! Client.NoSuchFile()
         case (Some(folder), Some(fileName)) =>
