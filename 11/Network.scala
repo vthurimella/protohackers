@@ -5,61 +5,77 @@ import java.io.{ByteArrayInputStream, ByteArrayOutputStream, DataInputStream, Da
 
 object Network {
 
-  def messageLength(code: Byte, strLength: Byte = 0, numRoads: Byte = 0) = {
-    val nrInt = if (numRoads < 0) (1 << 8) - numRoads else numRoads
-    val slInt = if (strLength < 0) (1 << 8) - strLength else strLength
-    if (code == Code.Error) slInt + 2
-    else if (code == Code.Plate) slInt + 6
-    else if (code == Code.WantHeartbeat) 5
-    else if (code == Code.Heartbeat) 1
-    else if (code == Code.IAmCamera) 7
-    else if (code == Code.Ticket) slInt + 18
-    else if (code == Code.IAmDispatcher) 2 + (nrInt * 2)
-    else 0
+  object Code {
+    val Hello: Byte = 0x50
+    val Error: Byte = 0x51
+    val OK: Byte = 0x52
+    val DialAuthority: Byte = 0x53
+    val TargetPopulations: Byte = 0x54
+    val CreatePolicy: Byte = 0x55
+    val DeletePolicy: Byte = 0x56
+    val PolicyResult: Byte = 0x57
+    val SiteVisit: Byte = 0x58
   }
 
-  object Code {
-    val Error: Byte = 0x10
-    val Plate: Byte = 0x20
-    val Ticket: Byte = 0x21
-    val WantHeartbeat: Byte = 0x40
-    val Heartbeat: Byte = 0x41
-    val IAmCamera: Byte = -128
-    val IAmDispatcher: Byte = -127
-  }
   val ValidCodes = Set(
+    Code.Hello,
     Code.Error,
-    Code.Plate,
-    Code.Ticket,
-    Code.WantHeartbeat,
-    Code.Heartbeat,
-    Code.IAmCamera,
-    Code.IAmDispatcher
+    Code.OK,
+    Code.DialAuthority,
+    Code.TargetPopulations,
+    Code.CreatePolicy,
+    Code.DeletePolicy,
+    Code.PolicyResult,
+    Code.SiteVisit
   )
 
-  class Message(code: Byte)
+  trait Message {
+    val code: Byte
+    val length: Int
+    val checksum: Byte
+  }
+
+  case class Hello(
+    code: Byte = Code.Hello,
+    length: Int = 25, // 25 bytes
+    protocol: String = "pestcontrol",
+    version: Int = 1,
+    checksum: Byte,
+  ) extends Message
 
   case class Error(
     code: Byte = Code.Error,
-    msg: String
-  ) extends Message(code)
+    length: Int,
+    message: String,
+    checksum: Byte,
+  ) extends Message
 
-  case class Plate(
-    code: Byte = Code.Plate,
-    msg: String,
-    timestamp: Int
-  ) extends Message(code)
+  case class OK(
+    code: Byte = Code.OK,
+    length: Int = 6, // 6 bytes
+    checksum: Byte,
+  ) extends Message
 
-  case class Ticket(
-    code: Byte = Code.Ticket,
-    plate: String,
-    road: Short,
-    mile1: Short,
-    timestamp1: Int,
-    mile2: Short,
-    timestamp2: Int,
-    speed: Short
-  ) extends Message(code)
+  case class DialAuthority(
+    code: Byte = Code.DialAuthority,
+    length: Int = 10, // 10 bytes
+    site: Int,
+    checksum: Byte
+  ) extends Message
+
+  case class Population(
+    species: String,
+    min: Int,
+    max: Int,
+  )
+
+  case class TargetPopulations(
+    code: Byte = Code.TargetPopulations,
+    length: Int,
+    site: Int,
+    populations: Array[Population],
+    checksum: Byte,
+  ) extends Message
 
   case class WantHeartbeat(
     code: Byte = Code.WantHeartbeat,
